@@ -1,24 +1,28 @@
-import React, {useState, useEffect} from 'react';
+// import React, {useState, useEffect} from 'react';
+import { useQuery } from 'react-query';
+
+async function fetchNames() {
+    const res = await fetch("/names");
+    return res.json();
+};
 
 function App () {
-    const [data, setData] = useState([{}])
+    const {isLoading, data, isError} = useQuery("names",fetchNames)
+    
+    if (isError) {
+        return <div> Error </div>
+    }
+    
+    if (isLoading) {
+        return <div> Loading ... </div>
+    }
 
-    useEffect(() => {
-        fetch("/names")
-            .then(res => res.json())
-            .then(data => {
-                setData(data)
-                console.log(data);
-            })
-    },[])
 
     return <>
         {
-            (typeof data.names === "undefined") ? ( <p>Loading...</p> )
-            :
-            (data.names.map((name) => (
+            data.names.map((name) => (
                 <p key={name} > {name} </p>
-            )))
+            ))
         }
     </>
 }
