@@ -2,9 +2,9 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello_world():
-    return "<p> MA name JEFF!</p>"
+@app.route("/names")
+def names():
+    return {"names":["Jeff","Marc"]}
 
 if __name__== "__main__" :
     app.run(debug=True)
