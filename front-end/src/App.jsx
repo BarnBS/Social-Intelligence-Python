@@ -12,11 +12,10 @@ function App () {
     if (isError) {
         return <div> Error </div>
     }
-    
+
     if (isLoading) {
         return <div> Loading ... </div>
     }
-
 
     return <>
         {
