@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap");
+button {
+  all: unset;
+  cursor: pointer;
+  font-family: "Ubuntu";
+  font-size: 18px;
+  color: white;
+  background-color: #2E8B57;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px lightgrey, -2px 2px lightgrey;
+  padding: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin: 5px;
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
